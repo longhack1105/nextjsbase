@@ -42,8 +42,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <Fragment>
       <Head>
-        <title>DashBoard: Admin</title>
-        <meta name="description" content="Admin" />
+        <title>Tên website</title>
+        <meta name="description" content="mô tả website" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0" />
       </Head>
       <AppProvider pageProps={pageProps}>

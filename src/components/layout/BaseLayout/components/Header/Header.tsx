@@ -1,31 +1,31 @@
-import { ArrowDown2, HambergerMenu } from 'iconsax-react';
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { ArrowDown2, HambergerMenu } from "iconsax-react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 
-import Avatar from '~/components/common/Avatar';
-import { ContextBaseLayout } from '../../BaseLayout';
-import ImageFill from '~/components/common/ImageFill';
-import Link from 'next/link';
-import { Languagese, ListOptionMenu } from '~/constants/config';
-import { PropsHeader } from './interfaces';
-import { RootState, store } from '~/redux/store';
-import { TContextBaseLayout } from '../../interfaces';
-import { TippyHeadless } from '~/components/common/Tippy';
-import clsx from 'clsx';
-import styles from './Header.module.scss';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import i18n from '~/locale/i18n';
-import Dialog from '~/components/common/Dialog';
-import { setStateLogin, setToken } from '~/redux/reducer/auth';
-import { setInfoUser } from '~/redux/reducer/user';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { QUERY_KEY } from '~/constants/config/enum';
-import { httpRequest } from '~/services';
-import notifyService from '~/services/notifyService';
-import { HubConnection } from '@microsoft/signalr';
-import { SocketContext } from '~/contexts/SocketProvider';
-import ImageFillElement from '~/components/common/ImageFill_2';
-import { IoIosArrowDown } from 'react-icons/io';
+import Avatar from "~/components/common/Avatar";
+import { ContextBaseLayout } from "../../BaseLayout";
+import ImageFill from "~/components/common/ImageFill";
+import Link from "next/link";
+import { Languagese, ListOptionMenu } from "~/constants/config";
+import { PropsHeader } from "./interfaces";
+import { RootState, store } from "~/redux/store";
+import { TContextBaseLayout } from "../../interfaces";
+import { TippyHeadless } from "~/components/common/Tippy";
+import clsx from "clsx";
+import styles from "./Header.module.scss";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import i18n from "~/locale/i18n";
+import Dialog from "~/components/common/Dialog";
+import { setStateLogin, setToken } from "~/redux/reducer/auth";
+import { setInfoUser } from "~/redux/reducer/user";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { QUERY_KEY } from "~/constants/config/enum";
+import { httpRequest } from "~/services";
+import exampleService from "~/services/exampleService";
+import { HubConnection } from "@microsoft/signalr";
+import { SocketContext } from "~/contexts/SocketProvider";
+import ImageFillElement from "~/components/common/ImageFill_2";
+import { IoIosArrowDown } from "react-icons/io";
 
 function Header({ title }: PropsHeader) {
   const router = useRouter();
@@ -44,21 +44,22 @@ function Header({ title }: PropsHeader) {
   const [totalCount, setTotalCount] = useState<number>(0);
 
   const chooseLang = useMemo(() => Languagese.find((v) => v.code == locale), [locale]);
-  
+
+  console.log(chooseLang);
 
   const checkActive = useCallback(
     (pathname: string) => {
-      const currentRoute = router.pathname.split('/')[1];
+      const currentRoute = router.pathname.split("/")[1];
       return pathname == `/${currentRoute}`;
     },
-    [router],
+    [router]
   );
   const { data: notify } = useQuery({
     queryKey: [QUERY_KEY.notify, notifyTab],
     queryFn: () => {
       return httpRequest({
         isList: true,
-        http: notifyService.list({
+        http: exampleService.example({
           State: notifyTab == 0 ? null : 0,
         }),
       });
@@ -76,7 +77,7 @@ function Header({ title }: PropsHeader) {
     mutationFn: async ({ uuid }: any) => {
       return httpRequest({
         showMessageFailed: true,
-        http: notifyService.detail({
+        http: exampleService.example({
           uuid,
         }),
       });
@@ -84,7 +85,7 @@ function Header({ title }: PropsHeader) {
     onSuccess(data) {},
   });
   useEffect(() => {
-    socket?.on('Notification', (data: any) => {
+    socket?.on("Notification", (data: any) => {
       setUnRead(data);
       // console.log(data + "------------")
       clientQuery.invalidateQueries({
@@ -93,7 +94,7 @@ function Header({ title }: PropsHeader) {
     });
 
     return () => {
-      socket?.off('Notification');
+      socket?.off("Notification");
     };
   }, [socket]);
   const clickNotifyHandle = (data: any) => {
@@ -105,10 +106,7 @@ function Header({ title }: PropsHeader) {
     <div className={styles.container}>
       <div className={styles.left}>
         <div className={styles.groupArrows}>
-          <div
-            className={styles.arrow}
-            onClick={() => context?.setShowFull!(!context?.showFull)}
-          >
+          <div className={styles.arrow} onClick={() => context?.setShowFull!(!context?.showFull)}>
             <HambergerMenu color="#3F4752" className={styles.icon} />
           </div>
           <h4 className={styles.title}>{title}</h4>
@@ -146,22 +144,14 @@ function Header({ title }: PropsHeader) {
           )}
         >
           <div className={styles.info}>
-            <div
-              className={clsx(styles.icon_arrow)}
-              onClick={() => setOpenMenu(!openMenu)}
-            >
+            <div className={clsx(styles.icon_arrow)} onClick={() => setOpenMenu(!openMenu)}>
               <ImageFillElement src={""} alt="chat" width={32} height={32} />
             </div>
             <div className={clsx(styles.icon_arrow)}>
               <ImageFillElement src={""} alt="chat" width={20} height={20} />
             </div>
             <div className={clsx(styles.icon_arrow)}>
-              <ImageFillElement
-                src={""}
-                alt="chat"
-                width={20}
-                height={20}
-              />
+              <ImageFillElement src={""} alt="chat" width={20} height={20} />
             </div>
           </div>
         </TippyHeadless>
@@ -191,12 +181,7 @@ function Header({ title }: PropsHeader) {
           )}
         >
           <div className={styles.lang} onClick={() => setOpen(!open)}>
-            <ImageFillElement
-              src={""}
-              alt="vietnamese"
-              width={20}
-              height={20}
-            />
+            <ImageFillElement src={""} alt="vietnamese" width={20} height={20} />
             <p>{i18n.t(`${chooseLang?.title}`)}</p>
             <i
               className={clsx(styles.icon_arrow, {

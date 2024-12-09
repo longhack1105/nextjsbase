@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { Fragment, ReactElement } from "react";
-import i18n from "~/locale/i18n";
+import React, { Fragment, ReactElement } from "react";
 import BaseLayout from "~/components/layout/BaseLayout";
 import Home from "~/components/pages/Home";
+import i18n from "~/locale/i18n";
 
 export default function Page() {
   return (
