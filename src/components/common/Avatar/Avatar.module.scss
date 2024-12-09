@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar {
+  object-fit: cover;
+}

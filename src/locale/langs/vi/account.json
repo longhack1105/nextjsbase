@@ -1,0 +1,12 @@
+{
+  "Change password": "Đổi mật khẩu",
+  "The new password must be different from the old one and contain at least 8 characters, including uppercase, lowercase, numbers, and special characters.": "Mật khẩu mới phải khác với mật khẩu cũ và chứa ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.",
+  "Old password": "Mật khẩu cũ",
+  "New Password": "Mật khẩu mới",
+  "Confirm Password": "Xác nhận mật khẩu",
+  "CONFIRM": "XÁC NHẬN",
+  "Welcome,": "Chào mừng,",
+  "Username": "Tên người dùng",
+  "Edited account information successfully!": "Chỉnh sửa thông tin tài khoản thành công!",
+  "Nạp tiền": "Nạp tiền"
+}

@@ -1,0 +1,121 @@
+.timelineContainer {
+  /* Timeline.module.css */
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  time {
+    line-height: 1.6;
+  }
+
+  body {
+    min-width: 375px;
+    font-family: "Poppins", sans-serif;
+    background-color: #f1f1f1;
+    color: #1a1a1a;
+  }
+
+  .timelineContainer {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    padding: 1rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding: 0px;
+    max-width: 460px;
+    border-radius: 12px;
+  }
+
+  .tlContent .tlHeader,
+  .tlContent .tlBody {
+    padding-left: 25.6px;
+    border-left: 3px solid gainsboro;
+  }
+
+  .tlBody {
+    padding-bottom: 1rem;
+  }
+
+  .tlContent:last-child .tlBody {
+    border-left: 3px solid transparent;
+  }
+
+  .tlHeader {
+    position: relative;
+    display: grid;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .tlTitle {
+    font-weight: 500;
+    font-size: 1em;
+  }
+
+  .tlTime {
+    font-size: 0.7em;
+  }
+
+  .tlMarker {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: gainsboro;
+    left: -1.1rem;
+    top: 50%;
+    transform: translate(50%, -50%);
+  }
+
+  .tlContentActive .tlMarker {
+    padding: 1.6px;
+    left: -1.25rem;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    background-clip: content-box;
+    box-shadow: 0 0 15px -2px var(--primary);
+  }
+
+  .tlContentActive .tlTitle {
+    color: var(--primary);
+  }
+
+  .tlContentActive {
+    --color: var(--primary);
+    .tlMarker {
+      border: 2px solid var(--color);
+      background-color: var(--color);
+      box-shadow: 0 0 15px -2px var(--color);
+    }
+    .tlTitle {
+      color: var(--color);
+    }
+    &.red {
+      --color: var(--danger);
+    }
+    &.green {
+      --color: #51cc56;
+    }
+    &.blue {
+      --color: #0055aa;
+    }
+    &.grayDark {
+      --color: #515D66;
+    }
+  }
+}

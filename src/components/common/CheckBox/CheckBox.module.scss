@@ -1,0 +1,80 @@
+.container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 30px;
+  user-select: none;
+  padding-left: 40px;
+  margin-bottom: 15px;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #929292;
+  border-radius: 3px;
+}
+.container:hover .checkmark {
+  border: 2px solid var(--primary);
+  background: var(--light-primary);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container .checkmark:after {
+  top: 35%;
+  left: 50%;
+  width: 8px;
+  height: 12px;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.container input:checked ~ .checkmark {
+  background: #2cae39;
+  border: 2px solid #2cae39;
+}
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmarkClick {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #929292;
+  border-radius: 3px;
+  margin-right: 18px;
+
+  &:hover {
+    border: 2px solid var(--primary);
+    cursor: pointer;
+    background: var(--light-primary);
+  }
+  &.checked {
+    position: relative;
+    background: #2cae39;
+    border: 2px solid #2cae39;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      width: 8px;
+      height: 12px;
+      border: solid rgb(255, 255, 255);
+      border-width: 0 2px 2px 0;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+}

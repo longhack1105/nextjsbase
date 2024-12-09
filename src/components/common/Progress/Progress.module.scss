@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  gap: 10px;
+}
+
+.progress {
+  position: relative;
+  width: 100%;
+  min-width: 75px;
+  background-color: var(--dark);
+  min-height: 7px;
+  border-radius: 32px;
+  overflow: hidden;
+  .line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 32px;
+    background: var(
+      --1,
+      linear-gradient(204deg, #ffbf42 12.23%, #e08821 97.85%)
+    );
+  }
+}

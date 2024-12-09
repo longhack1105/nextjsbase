@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.main {
+  position: relative;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.default {
+  position: relative;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding-top: 50%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.style_1_1 {
+  position: relative;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding-top: 100%;
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,0 +1,23 @@
+.container {
+  height: 44px;
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  align-items: center;
+  padding: 9px 12px;
+  padding-right: 10px;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  // font-size: 13px;
+  min-width: 120px;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--grey-3);
+  color: #323b47;
+  font-size: 14px;
+  font-weight: 500;
+
+  &.active {
+    border: 1px solid var(--primary);
+    background-color: var(--light);
+  }
+}

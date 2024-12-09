@@ -1,0 +1,49 @@
+.container {
+	position: relative;
+	z-index: 10;
+	.main {
+		opacity: 0;
+		visibility: hidden;
+		transform: 0.3s;
+
+		&.active {
+			opacity: 1;
+			visibility: inherit;
+		}
+
+		&.bottom-center {
+			padding-top: 5px;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		&.bottom-end {
+			padding-top: 5px;
+			position: absolute;
+			right: 0;
+		}
+
+		&.bottom-start {
+			padding-top: 5px;
+			position: absolute;
+			left: 0;
+		}
+	}
+
+	.message {
+		background-color: rgba(0, 0, 0, 0.6);
+		color: #fff;
+		text-align: center;
+		max-width: max-content;
+		font-weight: 500;
+		padding: 2px 4px;
+		border-radius: 4px;
+		font-size: 12px;
+		position: absolute;
+		left: 50%;
+		top: 0;
+		transform: translate(-50%, -100%);
+		z-index: 10;
+	}
+}

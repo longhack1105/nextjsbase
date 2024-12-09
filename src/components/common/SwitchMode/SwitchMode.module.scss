@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  height: 30px;
+  padding: 6px;
+  border-radius: 32px;
+  box-shadow: inset 0 0 3px #9f9f9f;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  .sun,
+  .moon {
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sun {
+    color: #fff;
+  }
+
+  &.dark {
+    background-color: #000;
+    .dot {
+      left: 40.5px;
+    }
+  }
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 3.5px;
+  width: 25px;
+  height: 25px;
+  transform: translateY(-50%);
+  background-color: var(--primary);
+  border-radius: 32px;
+  transition: 0.3s;
+}

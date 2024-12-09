@@ -1,0 +1,37 @@
+.container {
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #303b48;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  transition: 0.2s;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e2e8ed;
+  display: flex;
+  align-items: center;
+  cursor: text;
+  transition: 0.3s;
+
+  &.focus {
+    border: 1px solid #5755ff;
+    background: rgba(87, 85, 255, 0.1);
+  }
+
+  &:hover {
+    border: 1px solid #5755ff;
+  }
+
+  input {
+    display: block;
+    flex: 1;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding-left: 4px;
+  }
+}

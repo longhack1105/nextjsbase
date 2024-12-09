@@ -1,0 +1,31 @@
+.container {
+  position: relative;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #000;
+  margin-bottom: 3px;
+  font-weight: 500;
+  z-index: 10;
+
+  &.active {
+    background-color: var(--light-grey);
+    color: var(--primary);
+    &:hover {
+      background-color: var(--light-grey);
+      color: var(--primary);
+    }
+  }
+
+  &:hover {
+    background-color: var(--light-grey);
+  }
+}
+
+@media (max-width: 1023px) {
+  .container {
+    font-size: 13px;
+  }
+}

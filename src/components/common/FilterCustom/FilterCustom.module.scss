@@ -1,0 +1,135 @@
+@import '../../../styles/variables';
+
+.dealer {
+  height: 40px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  user-select: none;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e2e8ed;
+  cursor: pointer;
+  transition: 0.3s;
+
+  .value {
+    display: flex;
+    align-items: center;
+  }
+
+  .name {
+    font-weight: 500;
+    font-size: 14px;
+    color: #303b48;
+  }
+
+  .text {
+    flex: 1;
+    color: #27282b;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 8px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    -webkit-line-clamp: 1;
+  }
+
+  &:hover {
+    border: 1px solid #5755ff;
+  }
+
+  &.active {
+    border: 1px solid #5755ff;
+    background: rgba(87, 85, 255, 0.1);
+
+    .icon_arrow {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.icon_arrow {
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+// mainOption
+.mainOption {
+  margin-top: 2px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0px 31px 72px rgba(61, 84, 125, 0.04),
+    0px 14.6883px 53.9659px rgba(61, 84, 125, 0.0237158),
+    0px 7.76019px 40.9978px rgba(61, 84, 125, 0.0199046),
+    0px 3.71843px 32.6169px rgba(61, 84, 125, 0.0190217),
+    0px 1.35884px 26.1241px rgba(61, 84, 125, 0.0182832),
+    0px 0.199554px 16.6213px rgba(61, 84, 125, 0.0149682);
+}
+
+.option {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #27282b;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  transition: 0.3s;
+
+  &:hove {
+    color: #5755ff;
+  }
+
+  & + & {
+    margin-top: 4px;
+  }
+
+  &.option_active {
+    color: #5755ff;
+  }
+}
+
+.icon_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  max-height: 400px;
+  overflow: auto;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .img {
+    width: 30px;
+
+    .icon {
+      padding-top: 60%;
+    }
+  }
+}
+
+@media (max-width: $widthTablet) {
+  .dealer {
+    flex: 1;
+  }
+}

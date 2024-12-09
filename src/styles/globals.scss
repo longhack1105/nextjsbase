@@ -1,0 +1,373 @@
+@import "./anim";
+@import "./color";
+@import "./grid";
+@import "./stylesGlobals";
+@import "./variables";  
+
+:root {
+  --toastify-toast-min-height: 56px;
+  // --header-height: 50px;
+  // --menu-width: 300px;
+
+  --height-header: 52px;
+  --width-tab: 227px;
+  --width-tab-hidden: 68px;
+  --duration: 0.1s;
+  --padding: 16px;
+  --padding-top: 14px;
+}
+
+@media (max-width: $widthMobile) {
+  :root {
+    --padding: 12px;
+  }
+}
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: SF-Pro;
+  color: #323b47;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+//progress Page
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: var(--primary);
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--primary), 0 0 5px var(--primary);
+  opacity: 1;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+
+  border: solid 2px transparent;
+  border-top-color: var(--primary);
+  border-left-color: var(--primary);
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#walktour-portal {
+  border: none !important;
+  * {
+    border: none !important;
+
+    &:focus {
+      border: none !important;
+    }
+
+    &:active {
+      border: none !important;
+    }
+  }
+
+  rect {
+    fill-opacity: 0.6 !important;
+  }
+}
+
+.toastify-custom {
+  color: var(--light);
+  text-align: center;
+  padding: 6px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 12px !important;
+  min-height: max-content;
+  display: grid;
+  .Toastify__toast-body {
+    .Toastify__toast-icon {
+      font-size: 18px;
+      width: max-content;
+      margin-right: 6px;
+    }
+    padding: 12px;
+    line-height: 24px;
+    font-size: 14px;
+  }
+}
+
+.toastify-custom-success {
+  color: #51cc57;
+  text-align: center;
+  padding: 0px;
+  line-height: 12px;
+  background-color: #103325;
+  border-radius: 4px;
+}
+
+.toastify-custom-info {
+  color: #5099f8;
+  text-align: center;
+  padding: 0px;
+  line-height: 12px;
+  background-color: #101433;
+  border-radius: 4px;
+}
+
+.toastify-custom-error {
+  color: #f85050;
+  text-align: center;
+  padding: 0px;
+  line-height: 12px;
+  background-color: #331010;
+  border-radius: 4px;
+}
+
+.toastify-custom-warn {
+  color: #ff8800;
+  text-align: center;
+  padding: 0px;
+  line-height: 12px;
+  background-color: #332210;
+  border-radius: 4px;
+}
+
+// Custom slider antd
+.ant-slider-horizontal .ant-slider-rail {
+  height: 10px !important;
+  background: #eaeef3 !important;
+  border-radius: 50px !important;
+}
+
+.ant-slider-horizontal .ant-slider-track {
+  height: 10px !important;
+  border-radius: 50px !important;
+  background: #0060af !important;
+}
+
+.ant-slider .ant-slider-handle {
+  inset-block-start: 2px !important;
+}
+
+.ant-slider .ant-slider-handle:focus::after {
+  box-shadow: none;
+}
+
+.ant-slider .ant-slider-handle::after {
+  inset-block-start: 2px !important;
+}
+
+.ant-slider .ant-slider-handle:hover::after {
+  box-shadow: 0 0 0 0 #1677ff !important;
+}
+
+.ant-tooltip-inner {
+  position: relative !important;
+  background: transparent !important;
+  color: #1a1b2d !important;
+  bottom: -16px !important;
+  box-shadow: none !important;
+
+  &::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    margin-right: 2px !important;
+  }
+}
+
+.ant-slider-horizontal .ant-slider-step {
+  height: 10px !important;
+}
+
+.ant-tooltip-arrow {
+  display: none !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Custom Slick Dots */
+
+.ft-slick__dots--custom {
+  height: 6px;
+  width: 18px;
+  background-color: #8895a1;
+  border-radius: 4px;
+  position: relative;
+  margin-top: 14px;
+}
+
+.slick-dots li {
+  width: 18px;
+  margin: 0 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.slick-dots .slick-active {
+  width: 18px;
+  transition: width 0.3s ease-in-out;
+}
+
+.slick-dots .slick-active .ft-slick__dots--custom {
+  width: 18px;
+  top: 0px;
+  overflow: hidden;
+
+  .loading {
+    height: 8px;
+    animation: loading 3s ease-in;
+    background: #3dc5ff;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  color: #99a2b3 !important;
+}
+
+.slick-prev {
+  left: -32px !important;
+}
+
+.slick-next {
+  right: -32px !important;
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.react-timekeeper__tb-minute {
+  pointer-events: none;
+}

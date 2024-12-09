@@ -1,0 +1,28 @@
+.btn_add {
+  width: fit-content;
+  height: 40px;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+
+  .icon_add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

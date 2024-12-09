@@ -1,0 +1,78 @@
+.container {
+  // --color: #2eb02a;
+  padding: 4px 8px 4px 8px;
+  gap: 4px;
+  border-radius: 4px;
+  background: #e4e6ec;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #0c0c0c;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+
+  &.greenLine {
+    background: #fff;
+    border: solid 1px #2eb02a;
+    color: #2eb02a;
+  }
+  &.redLine {
+    background: #fff;
+    border: solid 1px #ee4c4c;
+    color: #ee4c4c;
+  }
+  &.yellowLine {
+    background: #fff;
+    border: solid 1px #d99800;
+    color: #d99800;
+  }
+  &.darkGrayLine {
+    background: #fff;
+    border: solid 1px #515d66;
+    color: #515d66;
+  }
+  &.blueLine {
+    background: #fff;
+    border: solid 1px #0055AA;
+    color: #0055AA;
+  }
+  &.green {
+    background: #fff;
+    background-color: #2eb02a;
+    color: #fff;
+  }
+  &.red {
+    background: #fff;
+    background-color: #ee4c4c;
+    color: #fff;
+  }
+  &.yellow {
+    background: #fff;
+    background-color: #d99800;
+    color: #fff;
+  }
+  &.violet {
+    background: #fff;
+    background-color: #9137FF;
+    color: #fff;
+  }
+  &.blue {
+    background: #fff;
+    background-color: #0055AA;
+    color: #fff;
+  }
+  &.greenAll {
+    background: #E7F6E5;
+    color: #2eb02a; 
+  }
+  &.redAll {
+    background: #FFE5E5;
+    color: #ee4c4c;
+  }
+
+  &.small {
+    padding: 2px 4px;
+  }
+}

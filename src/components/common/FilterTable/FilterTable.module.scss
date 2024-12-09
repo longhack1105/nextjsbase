@@ -1,0 +1,127 @@
+@import "../../../styles/variables";
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.children {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.select {
+  min-width: 140px;
+}
+
+.dateRanger {
+  min-width: 180px;
+}
+
+.input_search {
+  flex: 1;
+  min-width: 300px;
+}
+
+.method {
+  height: 42px;
+  background: #f4f5f6;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #000;
+  transition: 0.3s;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn_add {
+  height: 40px;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #51cc56;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+
+  .icon_add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 1400px) {
+  .search {
+    width: 100%;
+  }
+}
+
+@media (max-width: $widthTablet) {
+  .search {
+    margin-bottom: 8px;
+  }
+
+  .input_search {
+    min-width: 100%;
+  }
+
+  .select {
+    flex: 1;
+  }
+
+  .dateRanger {
+    flex: 1;
+  }
+}
+
+@media (max-width: $widthMobile) {
+  .input_search {
+    flex: unset;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: $low-widthMobile) {
+  .select {
+    min-width: 100%;
+  }
+  .dateRanger {
+    min-width: 100%;
+  }
+
+  .input_search {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,44 @@
+.global-color {
+  --primary: #6b47ff;
+  --text-menu: #202124;
+  --light-primary: rgb(87, 85, 255, 0.1);
+  --light-primary-gradient: linear-gradient(180deg, #9d7f4c 0%, rgba(37, 37, 37, 0) 100%)
+
+  --blue: rgba(49, 106, 216, 1);
+
+  --purple: rgba(203, 54, 255, 1);
+  --dark-purple: rgba(142, 89, 255, 1);
+  --light-purple: rgba(203, 54, 255, 0.1);
+
+  --warning: rgba(251, 165, 0, 1);
+  --light-warning: rgba(251, 165, 0, 0.1);
+
+  --danger: #F85050;
+  --danger-2: #FF0000;
+  --light-danger: rgba(242, 77, 77, 0.1);
+
+  --green: rgba(24, 188, 60, 1);
+  --light-green: rgba(11, 204, 111, 0.1);
+
+  --light: #ffffff;
+  --dark: #141414;
+  --dark-2: #1B1B1B;
+
+  --grey: #444444;
+  --grey-2: rgba(226, 232, 237, 1);
+  --grey-3: #e9ebec;
+
+  --light-grey: #f4f5f6;
+
+  --orange-light: rgba(248, 190, 158, 1);
+  --orange-light-gradient: linear-gradient(180deg, #F8BE9E 0%, #FFE4D6 0.01%, #FFDDCA 100%);
+
+  --border-grey: #ccc;
+  --title-color : #111215;
+  --green : #0DA500;
+  --text-span : #444955;
+  --text-title : #27282b;
+  --text-title-email : #0C0C0C;
+  --background-cancel : #ECEDEE;
+  --select-highlight: #e9ebec;
+}

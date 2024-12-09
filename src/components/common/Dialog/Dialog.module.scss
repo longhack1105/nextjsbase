@@ -1,0 +1,95 @@
+.popup {
+  background-color: var(--light);
+  width: 380px;
+  max-width: 95vw;
+  padding: 32px 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 12px;
+
+  .titlePopup {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .red {
+    color: var(--danger);
+  }
+  .blue {
+    color: var(--green);
+  }
+
+  .note {
+    color: #515c69;
+    font-weight: normal;
+    line-height: inherit;
+    margin-top: 4px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .groupBtnPopup {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &.warn {
+    .titlePopup,
+    .iconWarn {
+      color: var(--warning);
+    }
+  }
+
+  &.green {
+    .titlePopup,
+    .iconWarn {
+      color: var(--green);
+    }
+  }
+
+  &.danger {
+    .titlePopup,
+    .iconWarn {
+      color: var(--danger);
+    }
+  }
+}
+
+.iconWarn {
+  font-size: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
+}
+
+@media (max-width: 764px) {
+  .popup {
+    padding: 12px 24px;
+
+    .titlePopup {
+      font-size: 18px;
+    }
+
+    .note {
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .groupBtnPopup {
+      margin-top: 24px;
+      gap: 12px;
+    }
+  }
+}
+.cancel {
+  background: var(--neutral-100, #ecedee);
+  border: 1px solid var(--neutral-100, #ecedee);
+  color: black;
+}

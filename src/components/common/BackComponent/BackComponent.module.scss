@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+
+.container {
+  display: none;
+}
+
+@media (max-width: $widthMobile) {
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+
+    .title {
+      color: #141414;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+}

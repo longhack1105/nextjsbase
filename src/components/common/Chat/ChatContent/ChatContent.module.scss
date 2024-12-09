@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.message {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sender {
+  background-color: #34d399; // Light green for sender
+  align-self: flex-end;
+  color: white;
+}
+
+.receiver {
+  background-color: #e5e7eb; // Light gray for receiver
+  align-self: flex-start;
+  color: #111827;
+}
+
+.content {
+  margin: 0;
+}
+
+.time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  text-align: right;
+}

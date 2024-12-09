@@ -1,0 +1,75 @@
+.container {
+  overflow-x: auto;
+  padding-bottom: 4px;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  table,
+  td,
+  th {
+    text-align: left;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0 2px;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    line-height: 16px;
+    max-width: 300px;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  th {
+    color: #27282b;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+    // padding-right: 24px;
+
+    &.checkBox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    &.textEnd {
+      text-align: right;
+    }
+
+    &.textStart {
+      text-align: left;
+    }
+
+    &.textCenter {
+      text-align: center;
+    }
+  }
+
+  thead {
+    box-sizing: border-box;
+    background: #f4f6f9;
+  }
+
+  td {
+    color: #27282b;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid #e2e8ed;
+
+    .checkBox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+  }
+}

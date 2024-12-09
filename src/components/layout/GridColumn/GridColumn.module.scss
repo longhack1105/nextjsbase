@@ -1,0 +1,211 @@
+.container {
+  --columns: 3;
+  --gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  grid-gap: var(--gap);
+
+  &.col_1 {
+    --columns: 1;
+    @media (max-width: 1440px) {
+      --columns: 1;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 1;
+      --gap: 12px;
+    }
+  }
+
+  &.col_2 {
+    --columns: 2;
+    @media (max-width: 1440px) {
+      --columns: 2;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 1;
+      --gap: 12px;
+    }
+  }
+
+  &.col_4 {
+    --columns: 4;
+    @media (max-width: 1440px) {
+      --columns: 3;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 2;
+    }
+
+    @media (max-width: 764px) {
+      --columns: 1;
+      --gap: 12px;
+    }
+
+    &.sm {
+      --columns: 4;
+      --gap: 8px;
+
+      @media (max-width: 1440px) {
+        --columns: 4;
+      }
+
+      @media (max-width: 764px) {
+        --columns: 3;
+      }
+      @media (max-width: 480px) {
+        --columns: 2;
+      }
+    }
+  }
+
+  &.col_5 {
+    --columns: 5;
+    @media (max-width: 1440px) {
+      --columns: 3;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 2;
+    }
+
+    @media (max-width: 764px) {
+      --columns: 1;
+      --gap: 12px;
+    }
+
+    &.sm {
+      --columns: 5;
+      --gap: 8px;
+
+      @media (max-width: 1600px) {
+        --columns: 5;
+      }
+
+      @media (max-width: 1440px) {
+        --columns: 4;
+      }
+
+      @media (max-width: 764px) {
+        --columns: 3;
+      }
+      @media (max-width: 480px) {
+        --columns: 2;
+      }
+    }
+  }
+
+  &.col_6 {
+    --columns: 6;
+    @media (max-width: 1440px) {
+      --columns: 6;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 4;
+    }
+
+    @media (max-width: 764px) {
+      --columns: 3;
+      --gap: 12px;
+    }
+  }
+
+  &.col_8 {
+    --columns: 8;
+    --gap: 8px;
+    @media (max-width: 1440px) {
+      --columns: 6;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 4;
+    }
+
+    @media (max-width: 764px) {
+      --columns: 3;
+    }
+  }
+
+  &.col_12 {
+    --columns: 12;
+    --gap: 8px;
+    @media (max-width: 1440px) {
+      --columns: 11;
+    }
+
+    @media (max-width: 1200px) {
+      --columns: 8;
+    }
+
+    @media (max-width: 764px) {
+      --columns: 6;
+    }
+
+    @media (max-width: 425px) {
+      --columns: 5;
+    }
+
+    @media (max-width: 380px) {
+      --columns: 4;
+    }
+  }
+
+  &.m_2 {
+    @media (min-width: 375px) and (max-width: 764px) {
+      --columns: 2;
+      --gap: 12px;
+    }
+
+    @media (max-width: 375px) {
+      --columns: 1;
+      --gap: 12px;
+    }
+  }
+
+  &.tablet_col_3 {
+    @media (max-width: 1200px) {
+      --columns: 3;
+    }
+  }
+
+  &.scroll_20 {
+    grid-template-columns: unset;
+    grid-auto-flow: column;
+    grid-gap: var(--gap);
+    grid-auto-columns: 20%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+  }
+
+  &.scroll_m_85 {
+    @media (max-width: 764px) {
+      grid-template-columns: unset;
+      grid-auto-flow: column;
+      grid-gap: var(--gap);
+      grid-auto-columns: 85%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 8px;
+
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    --columns: 2;
+  }
+
+  @media (max-width: 764px) {
+    --columns: 1;
+    --gap: 12px;
+  }
+}

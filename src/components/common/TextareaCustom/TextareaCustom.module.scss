@@ -1,0 +1,92 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.textarea {
+  flex: 1;
+  resize: none;
+  outline: none;
+  width: 100%;
+  min-height: 152px;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid #eaecf0;
+  background: var(--light-grey);
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+
+  &:hover {
+    cursor: text;
+  }
+
+  &:empty:before {
+    content: attr(placeholder);
+    color: #babcc6;
+  }
+
+  &:focus-visible {
+    background-color: #fff;
+    border: 1px solid var(--primary);
+  }
+}
+
+.groupStyles {
+  margin-bottom: 12px;
+}
+
+.fontStyles {
+  display: flex;
+  align-items: center;
+}
+
+.listType {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  & + .listType {
+    border-left: 1px solid #d2d2d2;
+    margin-left: 8px;
+    padding-left: 8px;
+  }
+
+  .item {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 4px;
+    &:hover {
+      background-color: #ededed;
+    }
+  }
+}
+
+.color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input[type="color"] {
+    width: 25px;
+    height: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Change password": "更改密码",
+  "The new password must be different from the old one and contain at least 8 characters, including uppercase, lowercase, numbers, and special characters.": "新密码必须与旧密码不同，并且包含至少8个字符，包括大写字母、小写字母、数字和特殊字符。",
+  "Old password": "旧密码",
+  "New Password": "新密码",
+  "Confirm Password": "确认密码",
+  "CONFIRM": "确认",
+  "Welcome,": "欢迎，",
+  "Username": "用户名",
+  "Edited account information successfully!": "成功编辑账户信息！"
+}

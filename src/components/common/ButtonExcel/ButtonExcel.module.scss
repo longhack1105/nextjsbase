@@ -1,0 +1,28 @@
+.main {
+  cursor: pointer;
+  user-select: none;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8ed;
+  background: #fff;
+  transition: 0.3s;
+  width: fit-content;
+
+  &:hover {
+    border: 1px solid var(--primary);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.text {
+  color: #27282b;
+  font-size: 14px;
+  font-weight: 400;
+}

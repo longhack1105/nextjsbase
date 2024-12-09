@@ -1,0 +1,39 @@
+.main {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1.5px solid #eaecf0;
+  background-color: var(--grey-3);
+  border-radius: 8px;
+  transition: 0.2s;
+  height: 44px;
+
+  &.show {
+    background-color: #fff;
+    border: 1px solid var(--primary);
+  }
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.placeholder {
+  color: #898989;
+  font-size: 14px;
+  font-weight: 500;
+}

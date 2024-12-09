@@ -1,0 +1,40 @@
+@import "../../../styles/color";
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 56px;
+    height: 72px;
+    background-color: #f4f4f4;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: rgb(3, 3, 3);
+    font-size: 48px;
+    font-weight: 500;
+
+    &:focus {
+      border: 2px solid #7d8c9e;
+    }
+  }
+
+  input + input {
+    margin-left: 17.4px;
+  }
+}
+
+@media (max-width: 700px) {
+  .input {
+    input {
+      width: 10vw;
+      height: 12vw;
+    }
+
+    input + input {
+      margin-left: 6px;
+    }
+  }
+}
