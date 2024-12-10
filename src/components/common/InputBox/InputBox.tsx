@@ -8,7 +8,6 @@ import { setIsActiveCodeBtn } from '~/redux/reducer/site';
 import useDebounce from '~/common/hooks/useDebounce';
 import ImageFill from '../ImageFill';
 import ImageFillElement from '../ImageFill_2';
-import images from '../../../../public/images';
 import Button from '../Button';
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -104,7 +103,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         )}
         {isButtonCode && isCheck && (
           <div className={styles.check}>
-            <ImageFillElement src={images.check} width={16} height={16} />
+            <ImageFillElement src={""} width={16} height={16} />
           </div>
         )}
         {isButtonCode && !isCounting && (

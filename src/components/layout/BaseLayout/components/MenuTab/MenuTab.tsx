@@ -1,28 +1,30 @@
-import { Fragment, useCallback, useContext, useEffect, useState } from 'react';
-import { IoChevronDownSharp, IoChevronUpSharp } from 'react-icons/io5';
-import { RootState, store } from '~/redux/store';
-import { setStateLogin, setToken } from '~/redux/reducer/auth';
+import { Fragment, useCallback, useContext, useEffect, useState } from "react";
+import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5";
+import { RootState, store } from "~/redux/store";
+import { setStateLogin, setToken } from "~/redux/reducer/auth";
 
-import { ContextBaseLayout } from '../../BaseLayout';
-import Dialog from '~/components/common/Dialog';
-import { GoDot, GoDotFill } from 'react-icons/go';
-import ImageFill from '~/components/common/ImageFill';
-import Link from 'next/link';
-import { Menu, PATH } from '~/constants/config';
-import { PropsMenuTab } from './interfaces';
-import { TContextBaseLayout } from '../../interfaces';
-import TippyHeadless from '@tippyjs/react/headless';
-import clsx from 'clsx';
-import i18n from '~/locale/i18n';
-import icons from '~/constants/images/icons';
-import { setInfoUser } from '~/redux/reducer/user';
-import styles from './MenuTab.module.scss';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import { HubConnection } from '@microsoft/signalr';
-import { SocketContext } from '~/contexts/SocketProvider';
-import { QUERY_KEY } from '~/constants/config/enum';
-import { useQueryClient } from '@tanstack/react-query';
+import { ContextBaseLayout } from "../../BaseLayout";
+import Dialog from "~/components/common/Dialog";
+import { GoDot, GoDotFill } from "react-icons/go";
+import ImageFill from "~/components/common/ImageFill";
+import Link from "next/link";
+import { Menu, PATH } from "~/constants/config";
+import { PropsMenuTab } from "./interfaces";
+import { TContextBaseLayout } from "../../interfaces";
+import TippyHeadless from "@tippyjs/react/headless";
+import clsx from "clsx";
+import i18n from "~/locale/i18n";
+import icons from "~/constants/images/icons";
+import { setInfoUser } from "~/redux/reducer/user";
+import styles from "./MenuTab.module.scss";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { HubConnection } from "@microsoft/signalr";
+import { SocketContext } from "~/contexts/SocketProvider";
+import { QUERY_KEY } from "~/constants/config/enum";
+import { useQueryClient } from "@tanstack/react-query";
+import { HambergerMenu } from "iconsax-react";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
 function MenuTab({}: PropsMenuTab) {
   const router = useRouter();
@@ -42,12 +44,12 @@ function MenuTab({}: PropsMenuTab) {
   }, [context?.showFull]);
 
   useEffect(() => {
-    socket?.on('HaveNewMessage', (data) => {
+    socket?.on("HaveNewMessage", (data) => {
       setChatNotify(data);
       clientQuery.invalidateQueries({ queryKey: [QUERY_KEY.listRoomChat] });
     });
     return () => {
-      socket?.off('HaveNewMessage');
+      socket?.off("HaveNewMessage");
     };
   }, [socket]);
 
@@ -56,7 +58,7 @@ function MenuTab({}: PropsMenuTab) {
       const currentRoute = router.pathname;
       return currentRoute.includes(pathname);
     },
-    [router],
+    [router]
   );
 
   const checkActiveParent = useCallback(
@@ -70,20 +72,19 @@ function MenuTab({}: PropsMenuTab) {
         }
       }
 
-      if (path && path !== 'any') {
+      if (path && path !== "any") {
         return currentRoute === path;
       }
 
       return isPathExist;
     },
-    [router],
+    [router]
   );
 
   const subMenuTemplate = (item: any) => {
     return (
       <div className={styles.submenuBox}>
-        {(openMenu && openMenu[item.index]) ||
-        checkActiveParent(item?.children, item?.path) == true
+        {(openMenu && openMenu[item.index]) || checkActiveParent(item?.children, item?.path) == true
           ? item?.children?.map((children: any, k: any) => (
               <div key={k}>
                 <Link
@@ -99,7 +100,7 @@ function MenuTab({}: PropsMenuTab) {
                 </Link>
               </div>
             ))
-          : ''}
+          : ""}
       </div>
     );
   };
@@ -144,19 +145,21 @@ function MenuTab({}: PropsMenuTab) {
       id="menuTab"
       className={clsx(styles.container, {
         [styles.hidden]: !context?.showFull,
+        [styles.mobile]: isMobile,
       })}
     >
       <div className={styles.header}>
         <div className={styles.logo}>
-          <ImageFill className={styles.img} src={icons.logo_full} alt="logo" priority />
+          <ImageFill className={styles.img} src={"/static/images/baseLayout/logo.png"} alt="logo" priority />
+        </div>
+        <div className={styles.arrow} onClick={() => context?.setShowFull!(!context?.showFull)}>
+          <MdKeyboardDoubleArrowLeft color="#3F4752" size={24} className={styles.icon} />
         </div>
       </div>
       <div className={styles.menu}>
         {Menu.map((v, i) => (
           <div className={styles.group} key={i}>
-            {context?.showFull ? (
-              <div className={styles.groupTitle}>{i18n.t(v.title)}</div>
-            ) : null}
+            {context?.showFull ? <div className={styles.groupTitle}>{i18n.t(v.title)}</div> : null}
             <div className={styles.menuGroup}>
               {v.group.map((item: any, j: any) => {
                 return (
@@ -165,13 +168,8 @@ function MenuTab({}: PropsMenuTab) {
                     className={clsx(styles.itemGroup, {
                       [styles.active]: checkActiveParent(item.children, item?.path),
                       [styles.hidden]:
-                        item?.isHidden ||
-                        (item?.roleBlock
-                          ? (item?.roleBlock || []).includes(infoUser?.role || '')
-                          : false),
-                      [styles.showSub]:
-                        !!openMenu[item.index] ||
-                        checkActiveParent(item.children, item?.path),
+                        item?.isHidden || (item?.roleBlock ? (item?.roleBlock || []).includes(infoUser?.role || "") : false),
+                      [styles.showSub]: !!openMenu[item.index] || checkActiveParent(item.children, item?.path),
                     })}
                     id={item.index}
                     onClick={() => {
@@ -179,10 +177,7 @@ function MenuTab({}: PropsMenuTab) {
                         router.push(item.path);
                       }
                       setOpenMenu((prevState: any) => ({
-                        [item.index]:
-                          prevState && prevState[item.index] != undefined
-                            ? !prevState[item.index]
-                            : true,
+                        [item.index]: prevState && prevState[item.index] != undefined ? !prevState[item.index] : true,
                       }));
                       checkActiveParent(item.children, item?.path, false);
                       if (item?.index == 99) {
@@ -201,23 +196,17 @@ function MenuTab({}: PropsMenuTab) {
                       </>
                     ) : (
                       <TippyHeadless
-                        maxWidth={'100%'}
+                        maxWidth={"100%"}
                         interactive
-                        visible={
-                          (item?.children || []).length > 0
-                            ? openSubMenu[`sub${i}_${j}`] || false
-                            : false
-                        }
+                        visible={(item?.children || []).length > 0 ? openSubMenu[`sub${i}_${j}`] || false : false}
                         onClickOutside={() =>
                           setOpenSubMenu((prev: any) => ({
                             ...prev,
                             [`sub${i}_${j}`]: false,
                           }))
                         }
-                        placement={'right-start'}
-                        render={() => (
-                          <div className={styles.popup}>{subMenuTemplate(item)}</div>
-                        )}
+                        placement={"right-start"}
+                        render={() => <div className={styles.popup}>{subMenuTemplate(item)}</div>}
                       >
                         <div>{menuTemplate(item)}</div>
                       </TippyHeadless>
@@ -237,14 +226,14 @@ function MenuTab({}: PropsMenuTab) {
           onClick={() => setShowLogout(true)}
         >
           <i>
-            <ImageFill style_1_1="true" src={icons.icon_logout} />
+            <ImageFill style_1_1="true" src={""} />
           </i>
-          {context?.showFull ? <p>{i18n.t('Đăng xuất')}</p> : null}
+          {context?.showFull ? <p>{i18n.t("Đăng xuất")}</p> : null}
         </div>
       </div>
       <Dialog
-        title={i18n.t('Xác nhận')}
-        note={i18n.t('Bạn muốn đăng xuất tài khoản này?')}
+        title={i18n.t("Xác nhận")}
+        note={i18n.t("Bạn muốn đăng xuất tài khoản này?")}
         open={showLogout}
         onClose={() => setShowLogout(false)}
         onSubmit={() => {

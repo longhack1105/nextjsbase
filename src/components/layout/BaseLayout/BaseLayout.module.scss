@@ -1,5 +1,5 @@
-@import '../../../styles/color';
-@import '../../../styles/variables';
+@import "../../../styles/color";
+@import "../../../styles/variables";
 
 // .container {
 //   --height-header: 52px;
@@ -49,11 +49,11 @@
 .main {
   flex: 1;
   transition: padding-left var(--duration) ease-in-out;
-  margin-right: calc(var(--padding) * 2);
+  margin-right: calc(var(--padding));
 }
 
 .hidden {
-  padding-left: 90px;
+  padding-left: calc(var(--padding) + var(--width-tab-hidden));
 
   .tab {
     width: var(--width-tab-hidden);
@@ -64,14 +64,19 @@
   }
 
   .header {
-    width: calc(100% - (var(--padding) * 2));
+    width: calc(100% - (var(--padding)));
     left: calc(var(--width-tab-hidden) + (var(--padding) * 2));
   }
 }
 
+// khi là tablet + mobile
 @media (max-width: $widthTablet) {
   .container {
-    padding-left: var(--width-tab-hidden);
+    padding-left: 0;
+  }
+
+  .tab {
+    z-index: $zIndexMenuTab;
   }
 
   .header {
@@ -80,16 +85,21 @@
   }
 
   .main {
-    margin: 0;
+    margin: 0 calc(var(--padding));
   }
 
+  // khi ẩn
   .hidden {
+
+
+    .tab {
+      width: 0;
+      overflow: hidden;
+    }
+
     .header {
       width: calc(100% - (var(--padding) * 2));
       margin: 0 calc(var(--padding));
     }
   }
-}
-
-@media (max-width: $widthMobile) {
 }

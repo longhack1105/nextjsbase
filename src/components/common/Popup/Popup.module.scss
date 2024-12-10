@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  // background-color: var(--light);
 
   &.isFull {
     @media (max-width: 768px) {
@@ -38,4 +39,9 @@
   100% {
     opacity: 0.5;
   }
+}
+
+//style
+.red {
+  // color: red;
 }

@@ -1,9 +1,9 @@
 //"use client";
 
-import Link from 'next/link';
-import clsx from 'clsx';
-import styles from './Button.module.scss';
-import { useStyleClass } from '~/common/hooks/usStyleClass';
+import Link from "next/link";
+import clsx from "clsx";
+import styles from "./Button.module.scss";
+import { useStyleClass } from "~/common/hooks/usStyleClass";
 
 interface props {
   onClick?: () => void;
@@ -13,25 +13,17 @@ interface props {
   [props: string]: any;
 }
 
-function Button({
-  children,
-  onClick,
-  href,
-  className,
-  target,
-  div,
-  ...props
-}: props): JSX.Element {
+function Button({ children, onClick, href, className, target, div, ...props }: props): any {
   const styleClass = useStyleClass(props, styles);
 
   let onClickHandler: any = null;
 
-  let Wapper: any = onClick ? 'div' : 'button';
-  let Comp: any = 'div';
+  let Wapper: any = onClick ? "div" : "button";
+  let Comp: any = "div";
 
   if (href) {
     Wapper = Link;
-    Comp = 'div';
+    Comp = "div";
   }
 
   const handleClick = (e: any) => {

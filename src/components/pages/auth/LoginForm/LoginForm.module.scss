@@ -1,0 +1,59 @@
+.groupBtn {
+  margin-top: 28px;
+}
+
+.link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+
+  span {
+    margin-left: 6px;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.forgot_pass {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  input[type='checkbox'] {
+    box-sizing: border-box;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    border: 2px solid #737780;
+    border-radius: 6px;
+    position: relative;
+    &:checked {
+      background-color: var(--primary); // Màu tím khi được chọn
+      border: none;
+      &::before {
+        content: '✔';
+        color: white;
+        font-size: 12px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+.wrapper_pass {
+  display: flex;
+  gap: 10px;
+}
+.text_pass {
+  color: var(--primary);
+  cursor: pointer;
+}

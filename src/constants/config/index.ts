@@ -200,7 +200,7 @@ export const Menu = [
     ],
   },
 ];
-export const Languagese = [
+export const Languages = [
   {
     title: 'Vietnamese',
     code: 'vi',

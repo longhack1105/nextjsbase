@@ -2,7 +2,8 @@ import React, { Fragment, memo, useEffect } from "react";
 
 import Portal from "../Portal";
 import clsx from "clsx";
-import style from "./Popup.module.scss";
+import styles from "./Popup.module.scss";
+import { useStyleClass } from "~/common/hooks/usStyleClass";
 
 /*===========> INTERFACE <==========*/
 interface props {
@@ -14,7 +15,9 @@ interface props {
 }
 
 /*===========> MAIN COMPONENT <==========*/
-function Overlay({ open, onClose, isFull, children }: props) {
+function Overlay({ open, onClose, isFull, children, ...props }: props) {
+  const styleClass = useStyleClass(props, styles);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflowY = "hidden";
@@ -31,10 +34,8 @@ function Overlay({ open, onClose, isFull, children }: props) {
     <Fragment>
       {open && (
         <Portal>
-          <div className={clsx(style.overlay, "click")} onClick={onClose}></div>
-          <div className={clsx(style.main, { [style.isFull]: isFull })}>
-            {children}
-          </div>
+          <div className={clsx(styles.overlay, "click")} onClick={onClose}></div>
+          <div className={clsx(styles.main, styles, "global-color", { [styles.isFull]: isFull })}>{children}</div>
         </Portal>
       )}
     </Fragment>

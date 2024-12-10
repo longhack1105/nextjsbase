@@ -5,7 +5,7 @@ import Avatar from "~/components/common/Avatar";
 import { ContextBaseLayout } from "../../BaseLayout";
 import ImageFill from "~/components/common/ImageFill";
 import Link from "next/link";
-import { Languagese, ListOptionMenu } from "~/constants/config";
+import { Languages, ListOptionMenu } from "~/constants/config";
 import { PropsHeader } from "./interfaces";
 import { RootState, store } from "~/redux/store";
 import { TContextBaseLayout } from "../../interfaces";
@@ -42,10 +42,10 @@ function Header({ title }: PropsHeader) {
   const socket = useContext<HubConnection | null>(SocketContext);
   const [unRead, setUnRead] = useState<number>(0);
   const [totalCount, setTotalCount] = useState<number>(0);
+  const { isMobile } = useSelector((state: RootState) => state.site);
+  const chooseLang = useMemo(() => Languages.find((v) => v.code == locale), [locale]);
 
-  const chooseLang = useMemo(() => Languagese.find((v) => v.code == locale), [locale]);
-
-  console.log(chooseLang);
+  // console.log(chooseLang);
 
   const checkActive = useCallback(
     (pathname: string) => {
@@ -161,7 +161,7 @@ function Header({ title }: PropsHeader) {
           position="bottom-end"
           render={() => (
             <div className={styles.option}>
-              {Languagese.map((v) => (
+              {Languages.map((v) => (
                 <Link
                   key={v.code}
                   href={`${pathName}?${new URLSearchParams(router.query as Record<string, string>).toString()}`}
@@ -182,7 +182,7 @@ function Header({ title }: PropsHeader) {
         >
           <div className={styles.lang} onClick={() => setOpen(!open)}>
             <ImageFillElement src={""} alt="vietnamese" width={20} height={20} />
-            <p>{i18n.t(`${chooseLang?.title}`)}</p>
+            {!isMobile ? <p className={styles.title}>{i18n.t(`${chooseLang?.title}`)}</p> : null}
             <i
               className={clsx(styles.icon_arrow, {
                 [styles.active_icon]: open,
